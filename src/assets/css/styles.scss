@@ -1,0 +1,24 @@
+$white: #fff;
+$black: #000;
+
+*{margin:0; padding:0;}
+*, *:before, *:after {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+body, input, textarea {background: #fafafa; font-family: Open Sans, Arial, Helvetica, sans-serif; overflow-X:hidden;}
+a {color:inherit; text-decoration:none;}
+a:hover {text-decoration:none;}
+ul, li {list-style:none; margin:0;} fieldset {border:0;} textarea {resize:none;}
+h1,h2,h3,h4,span,li{margin:0;}
+h1{font-size:35px;}
+h2{font-size:25px;}
+h3{font-size:21px;}
+h4{font-size:18px;}
+span{font-size:15px;}
+li{font-size:18px;}
+p{font-size:21px;}
+.bold{font-weight:bold;}
+.light{font-weight:lighter;}
+#wrapper_body{min-height:100vh; display:flex; flex-direction:column;}
+#wrapper_components{flex-grow:1; display:flex; flex-direction:column;}
+
+.indent{width:90%; max-width:1200px; margin:0 auto;}
+
