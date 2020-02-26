@@ -70,10 +70,6 @@ function Login (){
 									<input type="password" name="senha" value={values.senha} onChange={handleChange} placeholder="Senha"/>
 									<input type="submit" disabled={!values.email} value="Entrar"/>
 								</form>
-
-								<div className="esqueci">
-									<span>Esqueceu a senha?</span>
-								</div>
 							</div>
 						) :
 							<div>
