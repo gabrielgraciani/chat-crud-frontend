@@ -22,3 +22,35 @@ p{font-size:21px;}
 
 .indent{width:90%; max-width:1200px; margin:0 auto;}
 
+#wrap_login{width:100%; position:relative;
+	.indent{max-width:805px; display:flex; justify-content:space-between; align-items:center;
+		.col{width:100%; display:flex; flex-direction:column;
+			span{font-size:14px; color:#262626;}
+			span.blue{color:#3897f0; font-weight:bold;}
+			.bloco{width:100%; background:$white; border:1px solid #dbdbdb; padding:30px 40px 20px; text-align:center; margin:0 0 10px 0;
+				&:nth-last-child(2){margin:0;}
+				form{width:100%; display:flex; flex-direction:column;
+					input{width:100%; margin:0 0 6px; border:1px solid #dbdbdb; background:#fafafa; padding:9px 8px; color:#262626; outline:0; border-radius:2px;
+						&:focus{border:1px solid #666;}}
+					input[type='submit']{cursor:pointer; margin:7px 0 0 0; background:#3897f0; color:$white; font-size:14px; font-weight:500; border-radius:5px; padding:5px;
+						&:disabled{opacity:0.35}}
+					.loading{width:100%; background:#3897f0; border-radius:5px; padding:5.5px 0; display:flex; align-items:center; justify-content:center;
+						svg{color:$white;}
+					}
+				}
+				button{background:transparent; border:0; padding:0 5px; cursor:pointer; outline:0;}
+				.esqueci{width:100%; text-align:center; margin-top:30px;
+					span{font-size:12px; color:#003569;}
+				}
+				.title{width:100%; text-align:center; margin:20px 0 25px;
+					h4{font-size:17px; color:#999; font-weight:600;}
+				}
+				.text{width:100%; margin:20px 0;
+					span{color:#999;}
+				}
+			}
+			.bloco.bloco2{padding:19px 0;}
+		}
+	}
+}
+

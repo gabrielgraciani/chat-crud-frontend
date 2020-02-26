@@ -5,9 +5,9 @@ import Auth from '../../services/auth';
 
 function* authSendCadastroWorker(data) {
 	try {
-		const {nome, email, nome_usuario, senha} = data.payload;
+		const {email, endereco, nome,  nome_usuario, senha} = data.payload;
 
-		const success = yield call(Auth.registerUser, nome, email, nome_usuario, senha);
+		const success = yield call(Auth.registerUser, email, endereco, nome, nome_usuario, senha);
 		console.log('teste', success);
 
 		if(success){
