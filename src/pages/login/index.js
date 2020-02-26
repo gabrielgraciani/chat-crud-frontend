@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {useDispatch, useSelector} from "react-redux";
 import {authSendCadastro, authSendLogin} from "../../redux/actions/auth";
+
 function Login (){
 
 	const initialState = {
@@ -18,6 +19,7 @@ function Login (){
 
 	const dispatch = useDispatch();
 	const { loading, error, success, user = [] } = useSelector(store => store.auth);
+
 
 	const handleChangeForm = () => {
 		setLogin(!login);
