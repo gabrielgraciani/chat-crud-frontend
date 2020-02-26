@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {useDispatch, useSelector} from "react-redux";
-import {authSendCadastro} from "../../redux/actions/auth";
+import {authSendCadastro, authSendLogin} from "../../redux/actions/auth";
 function Login (){
 
 	const initialState = {
@@ -17,8 +17,7 @@ function Login (){
 	const [validate, setValidate] = useState(false);
 
 	const dispatch = useDispatch();
-	const { isSaving, error, success } = useSelector(store => store.auth);
-	console.log('issaving', isSaving);
+	const { loading, error, success, user = [] } = useSelector(store => store.auth);
 
 	const handleChangeForm = () => {
 		setLogin(!login);
@@ -33,6 +32,8 @@ function Login (){
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(values);
+
+		dispatch(authSendLogin(values));
 	};
 
 	const handleRegister = (e) => {
@@ -65,7 +66,7 @@ function Login (){
 								</div>
 
 								<form action="" onSubmit={handleSubmit}>
-									<input type="text" name="email" value={values.email} onChange={handleChange} placeholder="Telefone, nome de usuário ou email"/>
+									<input type="text" name="email" value={values.email} onChange={handleChange} placeholder="E-mail"/>
 									<input type="password" name="senha" value={values.senha} onChange={handleChange} placeholder="Senha"/>
 									<input type="submit" disabled={!values.email} value="Entrar"/>
 								</form>
@@ -86,7 +87,7 @@ function Login (){
 									<input type="text" name="email" value={values.email} onChange={handleChange} placeholder="E-mail"/>
 									<input type="text" name="endereco" value={values.endereco} onChange={handleChange} placeholder="Endereço"/>
 									<input type="password" name="senha" value={values.senha} onChange={handleChange} placeholder="Senha"/>
-									{isSaving ? (
+									{loading ? (
 										<div className="loading">
 											<CircularProgress size={20} />
 										</div>
@@ -97,6 +98,10 @@ function Login (){
 							</div>
 						}
 					</div>
+
+					{user && (
+						<div>logado</div>
+					)}
 
 					{validate && (
 						<div className="error"><span>Preencha todos os campos.</span></div>

@@ -6,9 +6,10 @@ export const initialState = {
 	nome: '',
 	nome_usuario: '',
 	senha: '',
-	isSaving: false,
+	loading: false,
 	error: false,
-	success: false
+	success: false,
+	user: ''
 };
 
 
@@ -21,14 +22,14 @@ export default function authReducer(
 			return {
 				...initialState,
 				...state,
-				isSaving: true,
+				loading: true,
 			};
 
 		case actions.AUTH_SEND_CADASTRO_SUCCESS:
 			return {
 				...initialState,
 				...state,
-				isSaving: false,
+				loading: false,
 				success: payload.success
 			};
 
@@ -36,8 +37,21 @@ export default function authReducer(
 			return {
 				...initialState,
 				...state,
-				isSaving: false,
+				loading: false,
 				error: payload.error
+			};
+
+		case actions.AUTH_SEND_LOGIN:
+			return{
+				...initialState,
+				...state,
+				loading: true
+			};
+
+		case actions.AUTH_SEND_LOGIN_SUCCESS:
+			return{
+				loading: false,
+				user: payload.user
 			};
 
 		default:

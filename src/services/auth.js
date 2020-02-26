@@ -22,4 +22,23 @@ export default class auth{
 			}
 		});
 	};
+
+	static loginUser = (email, senha) => {
+		return new Promise((res, rej) => {
+			try{
+				let usersRef = db.collection('users');
+
+				usersRef.where('email', '==', email).where('senha', '==', senha).get().then(function(querySnapshot) {
+					querySnapshot.forEach(function(doc) {
+						console.log(doc.id, ' => ', doc.data());
+
+						res(doc.id);
+					})
+				})
+			} catch(error){
+				console.log('erro', error);
+				rej(error);
+			}
+		})
+	}
 }
