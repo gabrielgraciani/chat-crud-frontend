@@ -17,13 +17,11 @@ function App({location}){
 	const [cookies, setCookie] = useCookies(['id']);
 
 	useEffect(() => {
-		console.log('user', user);
 		if(!cookies.id){
 			setCookie('id', user || '', {path: '/', maxAge: 3600});
 		}
 	}, [user, setCookie, cookies.id]);
 
-	console.log('cookie', cookies);
 
 	if(cookies.id){
 		if(location.pathname === LOGIN){

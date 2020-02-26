@@ -4,7 +4,6 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_SEND_LOGIN = 'AUTH_SEND_LOGIN';
 export const AUTH_SEND_LOGIN_SUCCESS = 'AUTH_SEND_LOGIN_SUCCESS';
 
-
 export const authSendCadastro = (payload) => ({
 	type: AUTH_SEND_CADASTRO,
 	payload

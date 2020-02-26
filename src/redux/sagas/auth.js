@@ -47,7 +47,7 @@ function* authSendLoginWatcher(){
 function* authWatcher() {
 	yield all([
 		authSendCadastroWatcher(),
-		authSendLoginWatcher()
+		authSendLoginWatcher(),
 	]);
 }
 

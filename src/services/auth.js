@@ -40,5 +40,5 @@ export default class auth{
 				rej(error);
 			}
 		})
-	}
+	};
 }

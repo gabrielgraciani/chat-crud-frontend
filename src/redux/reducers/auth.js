@@ -9,7 +9,8 @@ export const initialState = {
 	loading: false,
 	error: false,
 	success: false,
-	user: ''
+	user: '',
+	logout: false,
 };
 
 
