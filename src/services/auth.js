@@ -18,6 +18,7 @@ export default class auth{
 				res(success);
 			} catch(error){
 				console.log('erro', error);
+				rej(error);
 			}
 		});
 	};

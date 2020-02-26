@@ -14,9 +14,10 @@ function Login (){
 
 	const [login, setLogin] = useState(true);
 	const [values, setValues] = useState(initialState);
+	const [validate, setValidate] = useState(false);
 
 	const dispatch = useDispatch();
-	const { isSaving } = useSelector(store => store.auth);
+	const { isSaving, error, success } = useSelector(store => store.auth);
 	console.log('issaving', isSaving);
 
 	const handleChangeForm = () => {
@@ -36,8 +37,19 @@ function Login (){
 
 	const handleRegister = (e) => {
 		e.preventDefault();
-		console.log(values);
-		dispatch(authSendCadastro(values));
+		const {email, endereco, nome, nome_usuario, senha} = values;
+
+		if(!email || !endereco || !nome || !nome_usuario || !senha){
+			setValidate(true);
+		}
+		else{
+			setValidate(false);
+			dispatch(authSendCadastro(values));
+			if(!error){
+				setValues(initialState);
+			}
+		}
+
 	};
 
 	return(
@@ -85,6 +97,18 @@ function Login (){
 							</div>
 						}
 					</div>
+
+					{validate && (
+						<div className="error"><span>Preencha todos os campos.</span></div>
+					)}
+
+					{error && (
+						<div className="error"><span>Ocorreu um erro. Tente novamente mais Tarde</span></div>
+					)}
+
+					{success && (
+						<div className="success"><span>Usuário cadastrado com sucesso!.</span></div>
+					)}
 
 					<div className="bloco bloco2">
 						{login ? (

@@ -11,7 +11,7 @@ function* authSendCadastroWorker(data) {
 		console.log('teste', success);
 
 		if(success){
-			yield put (actions.authSendCadastroSuccess());
+			yield put (actions.authSendCadastroSuccess(true));
 		}
 
 

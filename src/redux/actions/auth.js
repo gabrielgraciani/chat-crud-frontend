@@ -8,8 +8,11 @@ export const authSendCadastro = (payload) => ({
 	payload
 });
 
-export const authSendCadastroSuccess = () => ({
+export const authSendCadastroSuccess = (success) => ({
 	type: AUTH_SEND_CADASTRO_SUCCESS,
+	payload: {
+		success
+	}
 });
 
 export const authError = (error) => ({

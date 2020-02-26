@@ -7,7 +7,8 @@ export const initialState = {
 	nome_usuario: '',
 	senha: '',
 	isSaving: false,
-	error: false
+	error: false,
+	success: false
 };
 
 
@@ -27,7 +28,8 @@ export default function authReducer(
 			return {
 				...initialState,
 				...state,
-				isSaving: false
+				isSaving: false,
+				success: payload.success
 			};
 
 		case actions.AUTH_ERROR:

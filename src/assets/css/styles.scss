@@ -28,7 +28,6 @@ p{font-size:21px;}
 			span{font-size:14px; color:#262626;}
 			span.blue{color:#3897f0; font-weight:bold;}
 			.bloco{width:100%; background:$white; border:1px solid #dbdbdb; padding:30px 40px 20px; text-align:center; margin:0 0 10px 0;
-				&:nth-last-child(2){margin:0;}
 				form{width:100%; display:flex; flex-direction:column;
 					input{width:100%; margin:0 0 6px; border:1px solid #dbdbdb; background:#fafafa; padding:9px 8px; color:#262626; outline:0; border-radius:2px;
 						&:focus{border:1px solid #666;}}
@@ -49,7 +48,13 @@ p{font-size:21px;}
 					span{color:#999;}
 				}
 			}
-			.bloco.bloco2{padding:19px 0;}
+			.bloco.bloco2{margin:10px 0 0 0;}
+		}
+		.error{width:100%; text-align:center; background:#ff0000; padding:5px 0; margin:10px 0;
+			span{color:$white; font-size:15px;}
+		}
+		.success{width:100%; text-align:center; background:#4EB12E; padding:5px 0; margin:10px 0;
+			span{color:$white; font-size:15px;}
 		}
 	}
 }
