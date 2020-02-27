@@ -127,7 +127,7 @@ p{font-size:21px;}
 
 #wrap_chat{width:100%; position:relative; flex-grow:1; display:flex; align-items:flex-end;
 	.indent{display:flex; flex-direction:column;
-		.lista{width:100%; display:flex; flex-direction:column; height:75vh; overflow-y:scroll; justify-content:flex-end; padding:0 20px;
+		.lista{width:100%; display:flex; flex-direction:column; height:75vh; overflow-y:scroll; padding:0 20px;
 			.mensagem{width:fit-content; display:flex; margin:5px 0; flex-direction:column; padding:10px 20px; border-radius:10px;
 				span{font-size:15px; color:$black;}
 				span.light{color:#666;}
@@ -136,7 +136,7 @@ p{font-size:21px;}
 			.mensagem.other{background:#8BBE7B}
 		}
 		form{width:100%; margin:30px 0;
-			input{width:100%; background:#fff; border:1px solid $black; color:$black;}
+			input{width:100%; background:#fff; border:1px solid $black; color:$black; padding:10px; border-radius:10px; outline:0;}
 		}
 	}
 }

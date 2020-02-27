@@ -51,7 +51,6 @@ function Chat(){
 				<div className="lista">
 					{list.map((item, index) => (
 						<div className={`mensagem ${item.userId === userId ? 'mine' : 'other'}`} key={index}>
-							<span>{item.nome}</span>
 							<span>{item.message}</span>
 						</div>
 					))}
@@ -68,7 +67,7 @@ function Chat(){
 					<input
 						className="form__field"
 						onChange={handleInputChange}
-						placeholder="Type a new message here"
+						placeholder="Escreva sua mensagem"
 						type="text"
 						value={message}
 					/>
