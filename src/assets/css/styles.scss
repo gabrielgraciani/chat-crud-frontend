@@ -22,6 +22,15 @@ p{font-size:21px;}
 
 .indent{width:90%; max-width:1200px; margin:0 auto;}
 
+#wrap_header{width:100%; position:relative; background:#c6c6c6;
+	.indent{padding:15px 0; display:flex;
+		.menu{width:100%; display:flex;
+			li{margin:0 10px; color:$black; font-size:18px; cursor:pointer;}
+		}
+	}
+}
+
+
 #wrap_login{width:100%; position:relative;
 	.indent{max-width:805px; display:flex; justify-content:space-between; align-items:center;
 		.col{width:100%; display:flex; flex-direction:column;
