@@ -22,6 +22,10 @@ function App({location}){
 		}
 	}, [user, cookies, setCookie, cookies.id]);
 
+	const handleLogout = () => {
+		setCookie('id', '');
+	};
+
 
 	if(cookies.id){
 		if(location.pathname === LOGIN){
@@ -37,7 +41,7 @@ function App({location}){
 	return(
 		<>
 		<div id="wrapper_body">
-			<Header location={location} />
+			<Header location={location} handleLogout={handleLogout} />
 
 			<div id="wrapper_components">
 				<Suspense fallback={''}>

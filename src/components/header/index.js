@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import {LOGIN} from '../../routes';
-import { useCookies } from 'react-cookie';
 import {Link} from 'react-router-dom';
 import {CRUD, HOME} from 'routes';
 
 
-function Header({location}){
+function Header({location, handleLogout}){
 
 	const [hidden, setHidden] = useState(false);
 
@@ -14,13 +13,6 @@ function Header({location}){
 			setHidden(true);
 		} catch(error){}
 	}
-
-	// eslint-disable-next-line
-	const [cookies, setCookie] = useCookies(['id']);
-
-	const handleLogout = () => {
-		setCookie('id', '');
-	};
 
 	return(
 		<>
