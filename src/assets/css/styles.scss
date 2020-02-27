@@ -18,7 +18,7 @@ p{font-size:21px;}
 .bold{font-weight:bold;}
 .light{font-weight:lighter;}
 #wrapper_body{min-height:100vh; display:flex; flex-direction:column;}
-#wrapper_components{flex-grow:1; display:flex; flex-direction:column;}
+#wrapper_components{flex-grow:1; display:flex; flex-direction:column; justify-content:center;}
 
 .indent{width:90%; max-width:1200px; margin:0 auto;}
 

@@ -2,7 +2,6 @@ import React, {lazy, Suspense, useEffect} from 'react'
 import {Route, Switch, Redirect} from 'react-router-dom';
 import {LOGIN, HOME} from './routes';
 import Header from 'components/header';
-import Footer from 'components/footer';
 import {useSelector} from "react-redux";
 import { useCookies } from 'react-cookie';
 
@@ -37,7 +36,7 @@ function App({location}){
 	return(
 		<>
 		<div id="wrapper_body">
-			<Header />
+			<Header location={location} />
 
 			<div id="wrapper_components">
 				<Suspense fallback={''}>
@@ -48,7 +47,6 @@ function App({location}){
 				</Suspense>
 			</div>
 
-			<Footer />
 		</div>
 		</>
 	);
