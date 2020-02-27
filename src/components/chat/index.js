@@ -49,8 +49,8 @@ function Chat(){
 		<main className="container">
 			<ul className="list">
 				{list.map((item, index) => (
-					<li className={`list__item list__item--mine`} key={index}>
-						<span className={`message message--mine`}>
+					<li className={`list__item list__item--${item.userId === userId ? 'mine' : 'other'}`} key={index}>
+						<span className={`message message--${item.userId === userId ? 'mine' : 'other'}`}>
 							{item.message}
 						</span>
 					</li>
