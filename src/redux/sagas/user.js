@@ -7,27 +7,26 @@ import User from '../../services/user';
 
 function* userSendWorker(data) {
 	try {
-		const {nome, descricao, funcao, imagem} = data.payload;
+		const {nome, endereco, email, nome_usuario, senha} = data.payload;
 
 		let newDoc = db.collection('users').doc();
 		const id = newDoc.id;
 		newDoc.set({
+			email,
+			endereco,
 			nome,
-			descricao,
-			funcao,
+			nome_usuario,
+			senha,
 			createdAt: firebase.firestore.FieldValue.serverTimestamp()
 		});
 
-		const {url, name} = yield call(User.saveImage, imagem, id);
 		yield put (actions.userSavedSuccess({
 			id,
+			email,
+			endereco,
 			nome,
-			descricao,
-			funcao,
-			imagem: {
-				name,
-				url
-			},
+			nome_usuario,
+			senha,
 		}));
 
 		yield put(actions.userCloseForm());
@@ -128,17 +127,6 @@ function* userUpdateWorker(data){
 	}
 }
 
-
-function* userFetchSearchWorker() {
-	try {
-		const {user} = yield call(User.getFullItens);
-
-		yield put(actions.userFetchSearchSuccess(user));
-	} catch (error) {
-		alert(`Erro ${error}, tente novamente mais tarde`);
-	}
-}
-
 function* userSendWatcher() {
 	yield takeLatest(actions.USER_SEND, userSendWorker);
 }
@@ -159,10 +147,6 @@ function* userUpdateWatcher(){
 	yield takeLatest(actions.USER_UPDATE, userUpdateWorker);
 }
 
-function* userFetchSearchWatcher() {
-	yield takeLatest(actions.USER_FETCH, userFetchSearchWorker);
-}
-
 function* userWatcher() {
 	yield all([
 		userSendWatcher(),
@@ -170,7 +154,6 @@ function* userWatcher() {
 		userDeleteWatcher(),
 		userShowEditWatcher(),
 		userUpdateWatcher(),
-		userFetchSearchWatcher()
 	]);
 }
 

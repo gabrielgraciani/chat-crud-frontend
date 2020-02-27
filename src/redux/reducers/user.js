@@ -9,13 +9,11 @@ export const initialState = {
 	last: '',
 	list: [],
 	nome: '',
-	descricao: '',
-	funcao: '',
+	nome_usuario: '',
+	senha: '',
+	endereco: '',
+	email: '',
 	saving: false,
-	imagem: {
-		name: '',
-		url: ''
-	},
 	listSearch: []
 };
 
@@ -124,31 +122,11 @@ export default function userReducer(
 				isEditing: false,
 				payload: {
 					nome: '',
-					descricao: '',
-					funcao: '',
-					imagem: {
-						name: '',
-						url: ''
-					}
+					nome_usuario: '',
+					senha: '',
+					endereco: '',
+					email: '',
 				}
-			};
-
-		case actions.USER_FETCH_SEARCH:
-			return{
-				...initialState,
-				...state,
-				...payload,
-				isLoading: true
-			};
-
-		case actions.USER_FETCH_SEARCH_SUCCESS:
-			return{
-				...initialState,
-				...state,
-				isLoading:false,
-				listSearch:[
-					...payload.listSearch
-				]
 			};
 
 		default:

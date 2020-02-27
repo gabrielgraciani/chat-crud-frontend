@@ -9,8 +9,6 @@ export const USER_OPEN_FORM = 'USER_OPEN_FORM';
 export const USER_CLOSE_FORM = 'USER_CLOSE_FORM';
 export const USER_UPDATE = 'USER_UPDATE';
 export const USER_UPDATE_LIST = 'USER_UPDATE_LIST';
-export const USER_FETCH_SEARCH = 'USER_FETCH_SEARCH';
-export const USER_FETCH_SEARCH_SUCCESS = 'USER_FETCH_SEARCH_SUCCESS';
 
 
 export const userSend = (payload) => ({
@@ -71,16 +69,5 @@ export const userUpdateList = (list) => ({
 	type: USER_UPDATE_LIST,
 	payload: {
 		list
-	}
-});
-
-export const userFetchSearch = () => ({
-	type: USER_FETCH_SEARCH
-});
-
-export const userFetchSearchSuccess = (listSearch) => ({
-	type: USER_FETCH_SEARCH_SUCCESS,
-	payload: {
-		listSearch
 	}
 });

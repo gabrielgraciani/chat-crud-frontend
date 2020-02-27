@@ -8,9 +8,10 @@ function Formulario() {
 	const initialState = {
 		id: '',
 		nome: '',
-		descricao: '',
-		funcao: '',
-		imagem: ''
+		nome_usuario: '',
+		email: '',
+		endereco: '',
+		senha: '',
 	};
 	const [values, setValues] = useState(initialState);
 	const [validate, setValidate] = useState(false);
@@ -32,18 +33,18 @@ function Formulario() {
 	const onSubmit = (e) => {
 		e.preventDefault();
 
-		const {nome, descricao, funcao, imagem} = values;
-		if(!nome || !descricao || !funcao || !imagem){ setValidate(true); }
-		else{ dispatch(userSend({nome, descricao, funcao, imagem})); setValidate(false);}
+		const {nome, nome_usuario, email, endereco, senha} = values;
+		if(!nome || !nome_usuario || !email || !endereco || !senha){ setValidate(true); }
+		else{ dispatch(userSend({nome, nome_usuario, email, endereco, senha})); setValidate(false);}
 
 	};
 
 	const onUpdate = (e) => {
 		e.preventDefault();
 
-		const {id, nome, descricao, funcao, imagem} = values;
-		if(!nome || !descricao || !funcao || !imagem){ setValidate(true); }
-		else{ dispatch(userUpdate({id, nome, descricao, funcao, imagem})); setValidate(false);}
+		const {id, nome, nome_usuario, email, endereco, senha} = values;
+		if(!nome || !nome_usuario || !email || !endereco || !senha){ setValidate(true); }
+		else{ dispatch(userUpdate({id, nome, nome_usuario, email, endereco, senha})); setValidate(false);}
 	};
 
 	return(
@@ -63,12 +64,20 @@ function Formulario() {
 					<input type="text" name="nome" value={values.nome} onChange={handleChange} autoComplete="off" />
 				</div>
 				<div className="item">
-					<label htmlFor="descricao">Descrição<span>{validate && '*'}</span></label>
-					<input type="text" name="descricao" value={values.descricao} onChange={handleChange} autoComplete="off" />
+					<label htmlFor="nome_usuario">Nome de usuário<span>{validate && '*'}</span></label>
+					<input type="text" name="nome_usuario" value={values.nome_usuario} onChange={handleChange} autoComplete="off" />
 				</div>
 				<div className="item">
-					<label htmlFor="funcao">Função<span>{validate && '*'}</span></label>
-					<input type="text" name="funcao" value={values.funcao} onChange={handleChange} autoComplete="off" />
+					<label htmlFor="email">E-mail<span>{validate && '*'}</span></label>
+					<input type="text" name="email" value={values.email} onChange={handleChange} autoComplete="off" />
+				</div>
+				<div className="item">
+					<label htmlFor="endereco">Endereço<span>{validate && '*'}</span></label>
+					<input type="text" name="endereco" value={values.endereco} onChange={handleChange} autoComplete="off" />
+				</div>
+				<div className="item">
+					<label htmlFor="senha">Senha<span>{validate && '*'}</span></label>
+					<input type="password" name="senha" value={values.senha} onChange={handleChange} autoComplete="off" />
 				</div>
 
 				<div className="item"><label htmlFor=""><span>{validate && 'Preencha os campos com *'}</span></label></div>
