@@ -3,13 +3,14 @@ import io from 'socket.io-client'
 const socket = io('http://localhost:8080');
 
 export default class chat{
-	static saveMessage = (message) => {
+	static saveMessage = (message, userId) => {
 		return new Promise((res, rej) => {
 			try{
 				let newDoc = db.collection('chat').doc();
 				const id = newDoc.id;
 				newDoc.set({
 					message,
+					userId,
 					createdAt: firebase.firestore.FieldValue.serverTimestamp()
 				});
 

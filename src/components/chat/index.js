@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import io from 'socket.io-client'
 import {chatSendMessage, chatFetchMessage} from "../../redux/actions/chat";
 import {useDispatch, useSelector} from "react-redux";
+import { useCookies } from 'react-cookie';
 
 const socket = io('http://localhost:8080');
 socket.on('connect', () => console.log('[IO] Connect => A new connection has been established'));
@@ -9,6 +10,10 @@ socket.on('connect', () => console.log('[IO] Connect => A new connection has bee
 function Chat(){
 	const [message, updateMessage] = useState('');
 	const [messages, updateMessages] = useState([]);
+
+	// eslint-disable-next-line
+	const [cookies, setCookie] = useCookies(['id']);
+	const userId = cookies.id;
 
 	useEffect(() => {
 		const handleNewMessage = newMessage =>
@@ -20,7 +25,7 @@ function Chat(){
 	const handleFormSubmit = event => {
 		event.preventDefault();
 		if (message.trim()) {
-			dispatch(chatSendMessage(message));
+			dispatch(chatSendMessage({message, userId}));
 			updateMessage('')
 		}
 	};

@@ -5,9 +5,9 @@ import Chat from '../../services/chat';
 
 function* chatSendMessageWorker(data) {
 	try {
-		const message = data.payload;
+		const {message, userId} = data.payload;
 
-		yield call(Chat.saveMessage, message);
+		yield call(Chat.saveMessage, message, userId);
 
 		yield put(actions.chatSendMessageSuccess());
 
