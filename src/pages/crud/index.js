@@ -1,8 +1,10 @@
 import React from 'react';
 import Tabela from 'components/crud/tabela';
+import Form from 'components/crud/formulario';
 
 function Crud(){
 	return(
+		<>
 		<div id="wrap_crud">
 			<div className="indent">
 
@@ -10,6 +12,10 @@ function Crud(){
 
 			</div>
 		</div>
+
+		<Form />
+
+		</>
 	);
 }
 
