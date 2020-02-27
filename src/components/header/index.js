@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {LOGIN} from '../../routes';
 import { useCookies } from 'react-cookie';
+import {Link} from 'react-router-dom';
+import {CRUD, HOME} from 'routes';
+
 
 function Header({location}){
 
@@ -25,8 +28,12 @@ function Header({location}){
 				<div id="wrap_header">
 					<div className="indent">
 						<div className="menu">
-							<li>Home</li>
-							<li>Gerenciar usuários</li>
+							<Link to={HOME}>
+								<li>Home</li>
+							</Link>
+							<Link to={CRUD}>
+								<li>Gerenciar usuários</li>
+							</Link>
 							<li onClick={handleLogout}>Logout</li>
 
 						</div>
