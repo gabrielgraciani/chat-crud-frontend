@@ -76,7 +76,7 @@ function* userShowEditWorker(data){
 function* userUpdateWorker(data){
 	try {
 
-		const {id, nome, descricao, funcao, imagem} = data.payload;
+		const {id, nome, endereco, email, nome_usuario, senha} = data.payload;
 
 		const { list } = yield select(store => store.user);
 		const i = findIndex(list, { id });
@@ -85,38 +85,22 @@ function* userUpdateWorker(data){
 		if (i !== -1) {
 
 			yield db.collection('users').doc(id).update({
+				email,
+				endereco,
 				nome,
-				descricao,
-				funcao
+				nome_usuario,
+				senha,
 			});
 
-			if(imagem.lastModified){
-				const {url, name} = yield call(User.saveImage, imagem, id);
-
-				updatedList[i] = {
-					id,
-					nome,
-					descricao,
-					funcao,
-					imagem: {
-						name,
-						url
-					},
-				};
-				yield put(actions.userUpdateList(updatedList));
-			}else{
-				updatedList[i] = {
-					id,
-					nome,
-					descricao,
-					funcao,
-					imagem: {
-						name: imagem.name,
-						url: imagem.url
-					},
-				};
-				yield put(actions.userUpdateList(updatedList));
-			}
+			updatedList[i] = {
+				id,
+				email,
+				endereco,
+				nome,
+				nome_usuario,
+				senha,
+			};
+			yield put(actions.userUpdateList(updatedList));
 
 			yield put(actions.userCloseForm());
 
