@@ -3,9 +3,9 @@ import io from 'socket.io-client'
 import {chatSendMessage, chatFetchMessage} from "../../redux/actions/chat";
 import {useDispatch, useSelector} from "react-redux";
 import { useCookies } from 'react-cookie';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const socket = io('http://localhost:8080');
-socket.on('connect', () => console.log('[IO] Connect => A new connection has been established'));
 
 function Chat(){
 	const [message, updateMessage] = useState('');
@@ -37,7 +37,7 @@ function Chat(){
 		updateMessage(event.target.value);
 
 	const dispatch = useDispatch();
-	const { list = [] } = useSelector(store => store.chat);
+	const { list = [], isLoading } = useSelector(store => store.chat);
 
 	useEffect(() => {
 		if(list.length === 0){
@@ -49,6 +49,12 @@ function Chat(){
 		<div id="wrap_chat">
 			<div className="indent">
 				<div className="lista">
+					{isLoading && (
+						<div className="loading">
+							<CircularProgress size={20} />
+						</div>
+					)}
+
 					{list.map((item, index) => (
 						<div className={`mensagem ${item.userId === userId ? 'mine' : 'other'}`} key={index}>
 							<span className="light">{item.userNome}:</span>

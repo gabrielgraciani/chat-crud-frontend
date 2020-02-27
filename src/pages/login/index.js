@@ -33,7 +33,6 @@ function Login (){
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(values);
 
 		dispatch(authSendLogin(values));
 	};

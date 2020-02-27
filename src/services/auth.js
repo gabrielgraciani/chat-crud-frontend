@@ -30,8 +30,6 @@ export default class auth{
 
 				usersRef.where('email', '==', email).where('senha', '==', senha).get().then(function(querySnapshot) {
 					querySnapshot.forEach(function(doc) {
-						console.log(doc.id, ' => ', doc.data());
-
 						const id = doc.id;
 						const nome = doc.data().nome;
 						res({id, nome});

@@ -5,7 +5,7 @@ export const initialState = {
 	message: '',
 	isSending: false,
 	isLoading: false,
-	list: []
+	list: [],
 };
 
 export default function chatReducer(
