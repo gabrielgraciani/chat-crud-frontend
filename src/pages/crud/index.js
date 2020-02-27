@@ -1,8 +1,15 @@
 import React from 'react';
+import Tabela from 'components/crud/tabela';
 
 function Crud(){
 	return(
-		<div>crud</div>
+		<div id="wrap_crud">
+			<div className="indent">
+
+				<Tabela/>
+
+			</div>
+		</div>
 	);
 }
 
