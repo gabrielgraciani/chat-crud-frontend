@@ -33,6 +33,8 @@ function Chat(){
 	const handleInputChange = event =>
 		updateMessage(event.target.value);
 
+	console.log('messag', messages);
+
 
 	const dispatch = useDispatch();
 	const { list = [] } = useSelector(store => store.chat);
@@ -58,10 +60,10 @@ function Chat(){
 			<ul className="list">
 				{ messages.map((m, index) => (
 					<li
-						className={`list__item list__item--mine`}
+						className={`list__item list__item--${m.userId === userId ? 'mine' : 'other'}`}
 						key={index}
 					>
-                        <span className={`message message--mine`}>
+                        <span className={`message message--${m.userId === userId ? 'mine' : 'other'}`}>
                             { m.message }
                         </span>
 					</li>

@@ -16,6 +16,7 @@ export default class chat{
 
 				socket.emit('chat.message', {
 					id,
+					userId,
 					message
 				});
 
