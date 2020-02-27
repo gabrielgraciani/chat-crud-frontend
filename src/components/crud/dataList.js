@@ -20,9 +20,9 @@ function DataList(){
 		{list.map((user, index) => (
 			<div className="row" key={user.id}>
 				<div className="item">{user.id}</div>
-				<div className="item">{user.email}</div>
 				<div className="item">{user.nome}</div>
 				<div className="item">{user.nome_usuario}</div>
+				<div className="item">{user.email}</div>
 				<div className="item">{user.endereco}</div>
 				<div className="item">{user.senha}</div>
 				<div className="item actions">

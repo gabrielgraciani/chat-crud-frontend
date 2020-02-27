@@ -3,10 +3,8 @@ import * as actions from '../actions/user';
 export const initialState = {
 	active: '',
 	data: [],
-	endInfiniteScroll: false,
 	isLoading: false,
 	isEditing: false,
-	last: '',
 	list: [],
 	nome: '',
 	nome_usuario: '',
@@ -14,7 +12,6 @@ export const initialState = {
 	endereco: '',
 	email: '',
 	saving: false,
-	listSearch: []
 };
 
 export default function userReducer(
@@ -38,10 +35,6 @@ export default function userReducer(
 					payload,
 					...state.list
 				],
-				listSearch: [
-					payload,
-					...state.listSearch
-				],
 				saving: false
 			};
 
@@ -57,9 +50,7 @@ export default function userReducer(
 			return {
 				...initialState,
 				...state,
-				endInfiniteScroll: payload.endInfiniteScroll,
 				isLoading: false,
-				last: payload.last,
 				list:[
 					...state.list,
 					...payload.list,

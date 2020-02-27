@@ -11,16 +11,8 @@ export default class user{
 						...doc.data()
 					})
 				});
-				const lastVisible = querySnapshot.docs[querySnapshot.docs.length-1];
-				let end;
 
-				if(lastVisible){
-					end = false;
-					res({user, lastVisible, end});
-				}else{
-					end = true;
-					res({user, end});
-				}
+				res({user});
 			}).catch(rej)
 		});
 	};

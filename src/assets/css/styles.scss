@@ -87,6 +87,7 @@ p{font-size:21px;}
 #wrap_tabela .conteudo .row .item.actions .icon:nth-child(1){margin-right:5px;}
 #wrap_tabela .conteudo .row .item.actions .icon svg.edit path{fill:#FFC720;}
 #wrap_tabela .conteudo .row .item.actions .icon svg.delete path{fill:#D9534F;}
+#wrap_tabela .conteudo .row.loading{justify-content:center;}
 
 
 #wrap_formulario{transition:opacity .1s ease .5s ; opacity:0; visibility: hidden; width:100%;}

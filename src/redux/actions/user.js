@@ -25,12 +25,10 @@ export const userFetch = () => ({
 	type: USER_FETCH
 });
 
-export const userFullFilled = (list, last, endInfiniteScroll) => ({
+export const userFullFilled = (list) => ({
 	type: USER_FULLFILLED,
 	payload: {
 		list,
-		last,
-		endInfiniteScroll
 	}
 });
 

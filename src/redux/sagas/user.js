@@ -38,10 +38,9 @@ function* userSendWorker(data) {
 
 function* userFetchWorker() {
 	try {
-		const { last, endInfiniteScroll } = yield select(store => store.user);
 
-		const {user, lastVisible, end} = yield call(User.getItens, last, endInfiniteScroll);
-		yield put(actions.userFullFilled(user, lastVisible, end));
+		const {user} = yield call(User.getItens);
+		yield put(actions.userFullFilled(user));
 
 	} catch (error) {
 		console.log(`Erro ${error}, tente novamente mais tarde`);

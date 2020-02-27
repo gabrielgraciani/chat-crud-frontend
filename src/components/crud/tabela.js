@@ -23,9 +23,9 @@ function Tabela() {
 			<div className="conteudo">
 				<div className="row head">
 					<div className="item">ID</div>
-					<div className="item">Email</div>
 					<div className="item">Nome</div>
 					<div className="item">Nome de usuário</div>
+					<div className="item">Email</div>
 					<div className="item">Endereço</div>
 					<div className="item">Senha</div>
 					<div className="item">Ações</div>
