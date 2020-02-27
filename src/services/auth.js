@@ -29,12 +29,19 @@ export default class auth{
 				let usersRef = db.collection('users');
 
 				usersRef.where('email', '==', email).where('senha', '==', senha).get().then(function(querySnapshot) {
-					querySnapshot.forEach(function(doc) {
-						const id = doc.id;
-						const nome = doc.data().nome;
-						res({id, nome});
-					})
+					if(querySnapshot.empty){
+						const empty = true;
+						res({empty});
+					}else{
+						querySnapshot.forEach(function(doc) {
+							const id = doc.id;
+							const nome = doc.data().nome;
+							res({id, nome});
+						})
+					}
 				})
+
+
 			} catch(error){
 				console.log('erro', error);
 				rej(error);

@@ -24,9 +24,15 @@ function* authSendLoginWorker(data){
 	try{
 		const {email, senha} = data.payload;
 
-		const {id, nome} = yield call(Auth.loginUser, email, senha);
+		const {id, nome, empty} = yield call(Auth.loginUser, email, senha);
 
-		yield put(actions.authSendLoginSuccess(id, nome));
+		if(empty){
+			yield put(actions.authSendLoginSuccess(null, null, empty));
+
+		}else{
+			yield put(actions.authSendLoginSuccess(id, nome, false));
+		}
+
 
 
 

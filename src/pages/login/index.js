@@ -18,7 +18,7 @@ function Login (){
 	const [validate, setValidate] = useState(false);
 
 	const dispatch = useDispatch();
-	const { loading, error, success } = useSelector(store => store.auth);
+	const { loading, error, success, empty } = useSelector(store => store.auth);
 
 
 	const handleChangeForm = () => {
@@ -69,7 +69,13 @@ function Login (){
 								<form action="" onSubmit={handleSubmit}>
 									<input type="text" name="email" value={values.email} onChange={handleChange} placeholder="E-mail"/>
 									<input type="password" name="senha" value={values.senha} onChange={handleChange} placeholder="Senha"/>
-									<input type="submit" disabled={!values.email} value="Entrar"/>
+									{loading ? (
+										<div className="loading">
+											<CircularProgress size={20} />
+										</div>
+									) : (
+										<input type="submit" disabled={!values.email} value="Entrar"/>
+									)}
 								</form>
 							</div>
 						) :
@@ -95,6 +101,10 @@ function Login (){
 							</div>
 						}
 					</div>
+
+					{empty && (
+						<div className="error"><span>E-mail ou senha incorreta. Tente novamente.</span></div>
+					)}
 
 					{validate && (
 						<div className="error"><span>Preencha todos os campos.</span></div>
