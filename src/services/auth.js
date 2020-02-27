@@ -32,7 +32,9 @@ export default class auth{
 					querySnapshot.forEach(function(doc) {
 						console.log(doc.id, ' => ', doc.data());
 
-						res(doc.id);
+						const id = doc.id;
+						const nome = doc.data().nome;
+						res({id, nome});
 					})
 				})
 			} catch(error){

@@ -130,7 +130,7 @@ p{font-size:21px;}
 		.lista{width:100%; display:flex; flex-direction:column; height:75vh; overflow-y:scroll; padding:0 20px;
 			.mensagem{width:fit-content; display:flex; margin:5px 0; flex-direction:column; padding:10px 20px; border-radius:10px;
 				span{font-size:15px; color:$black;}
-				span.light{color:#666;}
+				span.light{color:#666; font-weight:bold; margin-bottom:3px;}
 			}
 			.mensagem.mine{background:#94C2ED; align-self:flex-end;}
 			.mensagem.other{background:#8BBE7B}

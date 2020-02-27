@@ -9,7 +9,7 @@ export const initialState = {
 	loading: false,
 	error: false,
 	success: false,
-	user: '',
+	id: '',
 	logout: false,
 };
 
@@ -52,7 +52,8 @@ export default function authReducer(
 		case actions.AUTH_SEND_LOGIN_SUCCESS:
 			return{
 				loading: false,
-				user: payload.user
+				id: payload.id,
+				nome: payload.nome
 			};
 
 		default:

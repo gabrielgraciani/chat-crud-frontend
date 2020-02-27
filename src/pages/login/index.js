@@ -18,7 +18,7 @@ function Login (){
 	const [validate, setValidate] = useState(false);
 
 	const dispatch = useDispatch();
-	const { loading, error, success, user = [] } = useSelector(store => store.auth);
+	const { loading, error, success } = useSelector(store => store.auth);
 
 
 	const handleChangeForm = () => {
@@ -96,10 +96,6 @@ function Login (){
 							</div>
 						}
 					</div>
-
-					{user && (
-						<div>logado</div>
-					)}
 
 					{validate && (
 						<div className="error"><span>Preencha todos os campos.</span></div>

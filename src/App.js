@@ -11,19 +11,24 @@ const Crud = lazy(() => import('pages/crud'));
 
 
 function App({location}){
-	const { user = [] } = useSelector(store => store.auth);
+	const {id, nome } = useSelector(store => store.auth);
 
 	// eslint-disable-next-line
 	const [cookies, setCookie] = useCookies(['id']);
+	// eslint-disable-next-line
+	const [cookiesNome, setCookiesNome] = useCookies(['nome']);
+
 
 	useEffect(() => {
 		if(!cookies.id){
-			setCookie('id', user || '', {path: '/', maxAge: 3600});
+			setCookie('id', id || '', {path: '/', maxAge: 3600});
+			setCookiesNome('nome', nome || '', {path: '/', maxAge: 3600});
 		}
-	}, [user, cookies, setCookie, cookies.id]);
+	}, [id, nome, cookies, setCookie, setCookiesNome, cookies.id]);
 
 	const handleLogout = () => {
 		setCookie('id', '');
+		setCookiesNome('nome', '');
 	};
 
 

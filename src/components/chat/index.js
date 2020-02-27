@@ -13,7 +13,10 @@ function Chat(){
 
 	// eslint-disable-next-line
 	const [cookies, setCookie] = useCookies(['id']);
+	// eslint-disable-next-line
+	const [cookiesNome, setCookiesNome] = useCookies(['nome']);
 	const userId = cookies.id;
+	const userNome = cookiesNome.nome;
 
 	useEffect(() => {
 		const handleNewMessage = newMessage =>
@@ -25,7 +28,7 @@ function Chat(){
 	const handleFormSubmit = event => {
 		event.preventDefault();
 		if (message.trim()) {
-			dispatch(chatSendMessage({message, userId}));
+			dispatch(chatSendMessage({message, userId, userNome}));
 			updateMessage('')
 		}
 	};
@@ -51,12 +54,14 @@ function Chat(){
 				<div className="lista">
 					{list.map((item, index) => (
 						<div className={`mensagem ${item.userId === userId ? 'mine' : 'other'}`} key={index}>
+							<span className="light">{item.userNome}:</span>
 							<span>{item.message}</span>
 						</div>
 					))}
 
 					{ messages.map((m, index) => (
 						<div className={`mensagem ${m.userId === userId ? 'mine' : 'other'}`} key={index}>
+                        	<span className="light">{ m.userNome }:</span>
                         	<span>{ m.message }</span>
 						</div>
 					))}
