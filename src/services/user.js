@@ -1,4 +1,4 @@
-import firebase, {db} from 'services/firebase';
+import {db} from 'services/firebase';
 
 export default class user{
 	static getItens = (last) => {

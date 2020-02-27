@@ -1,9 +1,10 @@
 import React from 'react';
+import Chat from 'components/chat';
 
 function Home(){
 	return(
 		<>
-		<div>home</div>
+			<Chat/>
 		</>
 	)
 }
