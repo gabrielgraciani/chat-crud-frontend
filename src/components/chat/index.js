@@ -36,9 +36,6 @@ function Chat(){
 	const handleInputChange = event =>
 		updateMessage(event.target.value);
 
-	console.log('messag', messages);
-
-
 	const dispatch = useDispatch();
 	const { list = [] } = useSelector(store => store.chat);
 
