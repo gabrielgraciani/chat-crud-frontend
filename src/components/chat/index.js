@@ -46,39 +46,36 @@ function Chat(){
 	}, [dispatch, list.length]);
 
 	return (
-		<main className="container">
-			<ul className="list">
-				{list.map((item, index) => (
-					<li className={`list__item list__item--${item.userId === userId ? 'mine' : 'other'}`} key={index}>
-						<span className={`message message--${item.userId === userId ? 'mine' : 'other'}`}>
-							{item.message}
-						</span>
-					</li>
-				))}
-			</ul>
+		<div id="wrap_chat">
+			<div className="indent">
+				<div className="lista">
+					{list.map((item, index) => (
+						<div className={`mensagem ${item.userId === userId ? 'mine' : 'other'}`} key={index}>
+							<span>{item.nome}</span>
+							<span>{item.message}</span>
+						</div>
+					))}
 
-			<ul className="list">
-				{ messages.map((m, index) => (
-					<li
-						className={`list__item list__item--${m.userId === userId ? 'mine' : 'other'}`}
-						key={index}
-					>
-                        <span className={`message message--${m.userId === userId ? 'mine' : 'other'}`}>
-                            { m.message }
-                        </span>
-					</li>
-				))}
-			</ul>
-			<form className="form" onSubmit={handleFormSubmit}>
-				<input
-					className="form__field"
-					onChange={handleInputChange}
-					placeholder="Type a new message here"
-					type="text"
-					value={message}
-				/>
-			</form>
-		</main>
+					{ messages.map((m, index) => (
+						<div className={`mensagem ${m.userId === userId ? 'mine' : 'other'}`} key={index}>
+                        	<span>{ m.message }</span>
+						</div>
+					))}
+				</div>
+
+
+				<form className="form" onSubmit={handleFormSubmit}>
+					<input
+						className="form__field"
+						onChange={handleInputChange}
+						placeholder="Type a new message here"
+						type="text"
+						value={message}
+					/>
+				</form>
+			</div>
+
+		</div>
 	)
 }
 
