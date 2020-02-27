@@ -20,7 +20,7 @@ function App({location}){
 		if(!cookies.id){
 			setCookie('id', user || '', {path: '/', maxAge: 3600});
 		}
-	}, [user, setCookie, cookies.id]);
+	}, [user, cookies, setCookie, cookies.id]);
 
 
 	if(cookies.id){
@@ -29,7 +29,7 @@ function App({location}){
 		}
 	}
 	else{
-		if(location.pathname === HOME){
+		if(location.pathname !== LOGIN){
 			return <Redirect to={LOGIN} />
 		}
 	}
