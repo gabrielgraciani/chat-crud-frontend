@@ -16,7 +16,7 @@ function Tabela() {
 				</div>
 
 				<div className="botoes">
-					<button onClick={() => dispatch(userOpenForm())}>Criar Item</button>
+					<button onClick={() => dispatch(userOpenForm())}>Criar Usuário</button>
 				</div>
 			</div>
 
