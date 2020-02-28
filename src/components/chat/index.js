@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { useCookies } from 'react-cookie';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const socket = io('http://localhost:8080');
+const socket = io('https://chat-crud-backend.herokuapp.com/');
 
 function Chat(){
 	const [message, updateMessage] = useState('');
